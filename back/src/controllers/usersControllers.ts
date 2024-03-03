@@ -1,0 +1,13 @@
+import { Request, Response } from "express"
+export const getAllUsers = async (req: Request, res:Response) => {
+    res.status(200).json ({message: 'GET /users'})
+};
+export const getUsers = async (req: Request, res:Response) => {
+    res.status(200).json ({message: "GET /users/:id"})
+};
+export const register = async (req: Request, res:Response) => {
+    res.status(200).json ({message: "POST /users/register"})
+};
+export const login = async (req: Request, res:Response) => {
+    res.status(200).json ({message: "POST /users/login"})
+};
