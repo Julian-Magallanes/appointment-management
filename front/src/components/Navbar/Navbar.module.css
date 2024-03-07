@@ -1,0 +1,50 @@
+.NavbarContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px 20px;
+}
+
+
+
+.NavbarBrand{
+    display: flex;
+    flex-direction: row;
+}
+.NavbarBrand img {
+    height: 40px;
+}
+.NavbarBrand h1 {
+    font-size: 24px;
+    margin-left: 10px;
+}
+
+.NavbarContainerSearch{
+    display: flex;
+    flex-direction: row;
+    
+}
+.ButtonLigth{
+    font-size: 16px;
+    border: 2px solid #1c252F;
+    border-radius: 8px;
+    width: 160px;
+    background: none;
+    height: 32px;
+    margin: 0px 5px;
+}
+.ButtonDark{
+    font-size: 16px;
+    border: 2px solid #1c252F;
+    border-radius: 8px;
+    width: 160px;
+    background-color: #1c252F;
+    color: #fff;
+    height: 32px;
+    margin: 0px 5px;
+}
+
+.NavbarMenu{
+    height: 32px;
+    margin-left: 5px;
+}

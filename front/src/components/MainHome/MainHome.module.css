@@ -1,0 +1,23 @@
+.MainHomeContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.MainHomeContainer h1{
+    font-size: 36px;
+    text-align: center;
+}
+.MainHomeContainer h6{
+    font-size: 26px;
+    text-align: center;
+}
+.MainHomeContainer button{
+    font-size: 22px;
+    border: 2px solid #1c252F;
+    border-radius: 8px;
+    width: 260px;
+    background-color: #1c252F;
+    color: #fff;
+    height: 40px;
+    margin: 0px 5px;
+}

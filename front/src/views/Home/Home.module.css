@@ -1,0 +1,11 @@
+.homeContainer{
+    background-image: url(../../assets/playa-fondo.jpeg);
+  background-size:cover;
+  opacity: 0.6;
+
+}
+
+.homeContainerChildren{
+
+    opacity: 1;
+}

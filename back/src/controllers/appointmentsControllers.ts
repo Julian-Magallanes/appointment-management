@@ -2,8 +2,11 @@ import { Request, Response } from "express"
 import interfaceAppointment from "../interfaces/InterfaceAppointment";
 import { createAppointmentService, getAllAppointmentsService, getAppointmentService } from "../services/appointmentsService";
 export const getAllAppointments = async (req: Request, res:Response) => {
-    const appointments: interfaceAppointment[] = await getAllAppointmentsService();
-    res.status(200).json (appointments);
+    try{const appointments: interfaceAppointment[] = await getAllAppointmentsService();
+        res.status(200).json (appointments);
+    } catch (error:any){
+        res.status(404).json({message: error.message})
+    }
 };
 
 export const getAppointments = async (req: Request, res:Response) => {
@@ -22,7 +25,7 @@ export const schedule = async (req: Request, res:Response) => {
         const newAppointment: interfaceAppointment = await createAppointmentService({
             id, date,time,userId,status, username, password
         })
-        res.status(200).json (newAppointment)
+        res.status(201).json (newAppointment)
     } catch (error:any){
         res.status(400).json({message: error.message})
     }

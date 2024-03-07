@@ -1,0 +1,10 @@
+*{
+  font-family: "Inter", sans-serif
+}
+#root{
+  
+}
+
+.AppContainer{
+  position: relative;
+}

@@ -1,3 +1,4 @@
+import Credential from "../entities/Credential";
 import interfaceCredential from "../interfaces/InterfaceCredential";
 import interfaceUsers from "../interfaces/InterfaceUsers";
 import interfaceUsersDto from "../interfaces/interfaceUsersDto";
@@ -42,3 +43,18 @@ export const  createUserService = async ( createUserDto: interfaceUsersDto): Pro
     users.push(newUser);
     return newUser;
 }
+/*export const loginUsersService = async( loginUserDto: interfaceUsersDto): Promise <interfaceUsers> => {
+
+    
+    const userLogin:interfaceCredential = ({
+        username:loginUserDto.username,
+        password: loginUserDto.password,
+        
+    });
+    const foundUser: interfaceUsers | undefined= users.find(
+        user => user.id === id
+    )
+    users.push(newUser);
+    return newUser;
+}
+*/

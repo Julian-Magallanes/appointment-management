@@ -42,3 +42,10 @@ export const  createAppointmentService = async ( createAppointmentDto: interface
     appointments.push(newAppointment);
     return newAppointment;
 }
+export const putAppointmentService = async(id: number): Promise <interfaceAppointment | null> =>{
+    const foundAppointment: interfaceAppointment | undefined= appointments.find(
+        appointment => appointment.id === id
+    )
+    if(!foundAppointment) throw Error ("Turno no encontrado");
+    return foundAppointment
+}
