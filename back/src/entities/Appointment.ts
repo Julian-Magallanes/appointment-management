@@ -9,6 +9,8 @@ export default class Appointment {
     date:string;
     @Column()
     time:string;
+    @Column()
+    place:string;
     @Column({ default: "active"})
     status: string
     @Column()

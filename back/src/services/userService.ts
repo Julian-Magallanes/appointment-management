@@ -1,60 +1,39 @@
+import { usersModel } from "../config/repositories";
 import Credential from "../entities/Credential";
-import interfaceCredential from "../interfaces/InterfaceCredential";
-import interfaceUsers from "../interfaces/InterfaceUsers";
+import User from "../entities/User";
 import interfaceUsersDto from "../interfaces/interfaceUsersDto";
 import { createCredential } from "./credentialService";
 
-const users:interfaceUsers[] = [
-    {
-        id:1,
-        name:"Julian",
-        email:"julian@gmail.com",
-        birthdate:"9/10/1994",
-        nDni:'38416351',
-        credentialId:1
-    }
-];
-let userId:number = 2
 export const getAllUsersService = async () =>{
-    const allUsers: interfaceUsers[] = users;
+    const allUsers: User[] = await usersModel.find({
+        relations:{appointments:true}
+    });
     return allUsers;
 }
 
-export const getUsersService = async(id: number): Promise <interfaceUsers | null> =>{
-    const foundUser: interfaceUsers | undefined= users.find(
-        user => user.id === id
-    )
+export const getUsersService = async(id: number): Promise <User> =>{
+    const foundUser: User | null = await usersModel.findOne({
+        where: {id}, relations: {appointments:true}
+    })
     if(!foundUser) throw Error ("Usuario no encontrado");
     return foundUser
 }
-export const  createUserService = async ( createUserDto: interfaceUsersDto): Promise <interfaceUsers> => {
-    const newCredential:interfaceCredential = await createCredential ({
-        username:createUserDto.username,
+export const  createUserService = async ( createUserDto: interfaceUsersDto): Promise <User> => {
+    const newUser: User = usersModel.create(createUserDto)
+    const newCredential:Credential = await createCredential ({
+        username: createUserDto.username,
         password: createUserDto.password,
     });
-    const newUser: interfaceUsers = {
-        id: userId++,
-        name:createUserDto.name,
-        email:createUserDto.email,
-        birthdate:createUserDto.birthdate,
-        nDni:createUserDto.nDni,
-        credentialId:newCredential.id
-    };
-    users.push(newUser);
-    return newUser;
-}
-/*export const loginUsersService = async( loginUserDto: interfaceUsersDto): Promise <interfaceUsers> => {
+    await usersModel.save(newUser)
+    newUser.credential = newCredential
+    usersModel.save(newUser)
 
-    
-    const userLogin:interfaceCredential = ({
-        username:loginUserDto.username,
-        password: loginUserDto.password,
-        
-    });
-    const foundUser: interfaceUsers | undefined= users.find(
-        user => user.id === id
-    )
-    users.push(newUser);
     return newUser;
 }
-*/
+export const loginUsersService = async( credentialId: number): Promise < User | null> => {
+    const foundUser: User | null = await usersModel.findOneBy({
+        credential: {id: credentialId}
+    })
+    return foundUser
+}
+    

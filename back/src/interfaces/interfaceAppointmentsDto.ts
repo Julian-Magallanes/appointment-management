@@ -1,11 +1,9 @@
 
 interface interfaceAppointmentsDto{
-    id:number;
     date:string;
     time:string;
     userId:number;
-    status:'active' | 'canceled'
-    username:string;
-    password: string;
+    description:string;
+    place:string;
 }
 export default interfaceAppointmentsDto

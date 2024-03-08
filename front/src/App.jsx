@@ -1,6 +1,6 @@
 
 import './App.css'
-import MyTurns from './components/MyTurns/MyTurns'
+
 import Home from './views/Home/Home'
 
 function App() {

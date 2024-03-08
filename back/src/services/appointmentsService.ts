@@ -1,51 +1,42 @@
-import interfaceAppointment from "../interfaces/InterfaceAppointment";
-import interfaceCredential from "../interfaces/InterfaceCredential";
+import { error } from "console";
+import { appointmentsModel, usersModel } from "../config/repositories";
+import Appointment from "../entities/Appointment";
+import User from "../entities/User";
+
 import interfaceAppointmentsDto from "../interfaces/interfaceAppointmentsDto";
 
-import { createCredential } from "./credentialService";
-
-const appointments:interfaceAppointment[] = [
-    {
-        id: 1,
-        date:"29 años",
-        time:"10:00",
-        userId:1,
-        status: 'active'
-}
-];
 let appointmentId:number = 2
 export const getAllAppointmentsService = async () =>{
-    const allAppointments: interfaceAppointment[] = appointments;
+    const allAppointments: Appointment[] = await appointmentsModel.find();
     return allAppointments;
 }
 
-export const getAppointmentService = async(id: number): Promise <interfaceAppointment | null> =>{
-    const foundAppointment: interfaceAppointment | undefined= appointments.find(
-        appointment => appointment.id === id
-    )
+export const getAppointmentService = async(id: number): Promise <Appointment> =>{
+    const foundAppointment: Appointment | null= await appointmentsModel.findOneBy({
+        id:id
+    })
     if(!foundAppointment) throw Error ("Turno no encontrado");
     return foundAppointment
 }
-export const  createAppointmentService = async ( createAppointmentDto: interfaceAppointmentsDto): Promise <interfaceAppointment> => {
-    const newCredential:interfaceCredential = await createCredential ({
-        username:createAppointmentDto.username,
-        password: createAppointmentDto.password,
-    });
-    const newAppointment: interfaceAppointment = {
-        id: appointmentId++,
-        date:createAppointmentDto.date,
-        time:createAppointmentDto.time,
-        userId:newCredential.id,
-        status:createAppointmentDto.status,
+export const  createAppointmentService = async ( createAppointmentDto: interfaceAppointmentsDto): Promise <Appointment> => {
+    
+    const newAppointment: Appointment = appointmentsModel.create(createAppointmentDto)
+    await appointmentsModel.save(newAppointment);
 
-    };
-    appointments.push(newAppointment);
+    const user: User | null = await usersModel.findOneBy({
+        id: createAppointmentDto.userId
+    })
+    if(!user) throw Error ('Usuario no encontrado');
+    newAppointment.user = user;
+
+    await appointmentsModel.save(newAppointment)
     return newAppointment;
 }
-export const putAppointmentService = async(id: number): Promise <interfaceAppointment | null> =>{
-    const foundAppointment: interfaceAppointment | undefined= appointments.find(
-        appointment => appointment.id === id
-    )
-    if(!foundAppointment) throw Error ("Turno no encontrado");
-    return foundAppointment
+export const putAppointmentService = async(id : number): Promise <void> =>{
+    const appointments:Appointment | null = await appointmentsModel.findOneBy({
+        id:id
+    });
+    if (!appointments) throw Error ("Turno no encontrado")
+    appointments.status = "canceled"
+    await appointmentsModel.save(appointments);
 }

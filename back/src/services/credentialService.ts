@@ -1,24 +1,21 @@
-import interfaceCredential from "../interfaces/InterfaceCredential";
+import { credentialModel } from "../config/repositories";
+import Credential from "../entities/Credential";
 import interfaceCredentialDto from "../interfaces/InterfaceCredentialDto";
 
-const credentials:interfaceCredential[] = [];
-let credentialId: number = 1
-export const createCredential = async (createCredentialDto: interfaceCredentialDto):Promise<interfaceCredential> => {
-    const newCredential: interfaceCredential = {
-        id:credentialId++,
-        username:createCredentialDto.username,
-        password:createCredentialDto.password
+// Esta funcion es para cuando el usuario se registra
+export const createCredential = async (createCredentialDto: interfaceCredentialDto):Promise<Credential> => {
+    const newCredential: Credential = credentialModel.create(createCredentialDto)
+    await credentialModel.save(newCredential);
 
-    };
-    credentials.push(newCredential);
     return newCredential
 }
-export const validateCredential = async (validateCredentialDto: interfaceCredentialDto):Promise<interfaceCredential> => {
+
+// Esta funcion es para cuando el usuario haga un login
+export const validateCredential = async (validateCredentialDto: interfaceCredentialDto):Promise<Credential> => {
     const {username, password} = validateCredentialDto;
-    const foundCredential = credentials.find(
-        credential => credential.username === username
-    );
-    if(!foundCredential) throw Error ("Usuario no encontrado")
-    if(password !== foundCredential?.password) throw Error ("Contrasela incorrrecta")
+    const foundCredential: Credential | null= await credentialModel.findOneBy({username});
+    if(!foundCredential) throw Error ('Usuario incorrecto')
+    if(password !== foundCredential.password) throw Error ('Password incorrecto')
+    
     return foundCredential
 }
