@@ -1,5 +1,5 @@
 import React from "react";
-import Brand from "./Brand";
+import Brand from "../Brand/Brand";
 import ButtonsNavbar from "./ButtonsNavbar";
 import styles from "./Navbar.module.css"
 import MenuNavbar from "./Menu";

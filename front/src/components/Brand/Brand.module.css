@@ -1,0 +1,11 @@
+.containerBrand{
+    display: flex;
+    flex-direction: row;
+}
+.containerBrand img {
+    height: 40px;
+}
+.containerBrand h1 {
+    font-size: 24px;
+    margin-left: 10px;
+}

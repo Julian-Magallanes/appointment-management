@@ -4,17 +4,7 @@
     justify-content: space-between;
     margin: 10px 20px;
 }
-.NavbarBrand{
-    display: flex;
-    flex-direction: row;
-}
-.NavbarBrand img {
-    height: 40px;
-}
-.NavbarBrand h1 {
-    font-size: 24px;
-    margin-left: 10px;
-}
+
 
 .NavbarContainerSearch{
     display: flex;
