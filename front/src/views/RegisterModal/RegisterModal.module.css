@@ -16,6 +16,10 @@
     flex-direction: column;
 
 }
+.RegisterContainerFormInputContainer p{
+    color: red;
+
+}
 .RegisterContainerFormInput{
     display: flex;
     flex-direction: row;
@@ -29,7 +33,6 @@
     border-bottom: 1px solid #878787;
     padding-bottom: 2px;
     height: 30px;
-
 }
 .RegisterContainerFormInput input{
     height: 30px;
@@ -37,7 +40,10 @@
     border-top: none;
     border-left: none;
     border-right: none;
-    
+    padding-left: 20px;
+}
+.RegisterContainerFormInput input:focus{
+    outline: none;
 }
 .RegisterContainerFormButtons{
     display: flex;
@@ -65,12 +71,19 @@
   }
 .RegisterContainerFormCheckbox{
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    flex-direction: column;
+    align-items: start;
     align-content: center;
-    justify-content: left;
     width: 720px;
-    margin: 10px;
+    margin-top: 10px;
+}
+.RegisterFormCheckbox{
+    display: flex;
+    align-content: center;
+}
+.RegisterContainerFormCheckbox p{
+    color: red;
+    margin-top: 10px;
 }
 .RegisterContainerFormCheckbox label{
     color: #2B2E78;

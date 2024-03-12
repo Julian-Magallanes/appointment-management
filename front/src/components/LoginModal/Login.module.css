@@ -38,6 +38,11 @@
 .LoginContainerFormInputContainer{
     display: flex;
     flex-direction: column;
+    align-content: end;
+
+}
+.LoginContainerFormInputContainer p{
+    color: red;
 
 }
 .LoginContainerFormInput{
@@ -76,6 +81,7 @@
     height: 46px;
     margin: 0px 5px;
     margin: 10px;
+    cursor: pointer;
 }
 .ButtonDark{
     font-size: 16px;
@@ -87,4 +93,5 @@
     height: 46px;
     margin: 0px 5px;
     margin: 10px;
+    cursor: pointer;
 }

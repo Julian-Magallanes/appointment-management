@@ -30,8 +30,79 @@
     height: 32px;
     margin: 0px 5px;
 }
-
 .NavbarMenu{
-    height: 32px;
-    margin-left: 5px;
+    height: 100%;
+}
+
+.NavbarDropdown {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    display: none;
+    text-align: end;
+    font-size: 24px;
+}
+
+.NavbarDropdown.Visible {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right:  40px;
+    padding: 20px;
+    background-color: #fff;
+    height: 100%;
+    width: 440px;
+    right: 0;
+    top: 0;
+    z-index: -1;
+}
+
+.NavbarDropdown li {
+    position: relative;
+    top: 60px;
+    margin-bottom: 20px;
+}
+
+.NavbarDropdown li:hover ul {
+    display: block;
+}
+
+.NavbarMenuIcon1{
+    margin-left: 10px;
+    margin-bottom: 8px;
+    width: 40px;
+    height: 5px;
+    background-color:#1c252F ;
+    transition: 0.2s;
+}
+.NavbarMenuIcon1.Animation {
+    transform: rotateZ(45deg);
+    top: 16px;
+    position: relative;
+}
+
+.NavbarMenuIcon2{
+    margin-left: 10px;
+    margin-bottom: 8px;
+    width: 40px;
+    height: 5px;
+    background-color:#1c252F ;
+    
+}
+.NavbarMenuIcon2.Animation {
+    display: none;
+}
+.NavbarMenuIcon3{
+    margin-left: 10px;
+    margin-bottom: 8px;
+    width: 40px;
+    height: 5px;
+    background-color:#1c252F ;
+    transition: 0.2s;
+}
+.NavbarMenuIcon3.Animation {
+    top: 4px;
+    position: relative;
+    transform: rotateZ(-45deg)
 }
