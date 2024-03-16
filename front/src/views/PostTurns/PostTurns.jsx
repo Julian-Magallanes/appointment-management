@@ -31,17 +31,17 @@ const PostTurn = () =>{
                 <label htmlFor="">Horario</label>
                 </div>
                 <div className={styles.PostTurnsContainerFormInput}>  
-                    <select name="form-select" id="formDate">
-                        <option selected>Elije en la lista</option>
-                        <option value="1">8:00</option>
-                        <option value="2">8:30</option>
-                        <option value="3">9:00</option>
-                        <option value="3">9:30</option>
-                        <option value="3">10:00</option>
-                        <option value="3">10:30</option>
-                        <option value="3">11:30</option>
-                        <option value="3">12:00</option>
-                        <option value="3">12:30</option>
+                    <select name="form-select" id="formDate" defaultValue="">
+                        <option disabled>Elije en la lista</option>
+                        <option value="8:00">8:00</option>
+                        <option value="8:30">8:30</option>
+                        <option value="9:00">9:00</option>
+                        <option value="9:30">9:30</option>
+                        <option value="10:00">10:00</option>
+                        <option value="10:30">10:30</option>
+                        <option value="11:30">11:30</option>
+                        <option value="12:00">12:00</option>
+                        <option value="12:30">12:30</option>
                     </select>
                 </div>
             </div>
@@ -51,12 +51,12 @@ const PostTurn = () =>{
                 <label htmlFor="">Tipo de atencion</label>
                 </div>
                 <div className={styles.PostTurnsContainerFormInput}>  
-                    <select name="form-select" id="formDate">
-                        <option selected>Elije en la lista</option>
-                        <option value="1">Solicitud de prestamo</option>
-                        <option value="2">Retiro en caja</option>
-                        <option value="3">Solicitud tarjeta</option>
-                        <option value="3">Operaciones Varias</option>
+                    <select name="form-select" id="formDate" defaultValue="">
+                        <option disabled>Elije en la lista</option>
+                        <option value="Solicitud de prestamo">Solicitud de prestamo</option>
+                        <option value="Retiro en caja">Retiro en caja</option>
+                        <option value="Solicitud tarjeta">Solicitud tarjeta</option>
+                        <option value="Operaciones Varias">Operaciones Varias</option>
                     </select>
                 </div>
             </div>
@@ -66,12 +66,12 @@ const PostTurn = () =>{
                 <label htmlFor="">Sucursal</label>
                 </div>
                 <div className={styles.PostTurnsContainerFormInput}>  
-                    <select name="form-select" id="formDate">
-                        <option selected>Elije en la lista</option>
-                        <option value="1">Balcarce 272, Godoy Cruz</option>
-                        <option value="2">Dorrego 586, Guaymallen</option>
-                        <option value="3">Independencia 586, Las Heras</option>
-                        <option value="3">Luzuriaga 102, Lujan de Cuyo</option>
+                    <select name="form-select" id="formDate" defaultValue="">
+                        <option disabled>Elije en la lista</option>
+                        <option value="Balcarce 272, Godoy Cruz">Balcarce 272, Godoy Cruz</option>
+                        <option value="Dorrego 586, Guaymallen">Dorrego 586, Guaymallen</option>
+                        <option value="Independencia 586, Las Heras">Independencia 586, Las Heras</option>
+                        <option value="Luzuriaga 102, Lujan de Cuyo">Luzuriaga 102, Lujan de Cuyo</option>
                     </select>
                 </div>
             </div>

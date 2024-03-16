@@ -24,9 +24,9 @@ export const getUsers = async (req: Request, res:Response) => {
 // POST /users/register registra un nuevo usuario
 export const register = async (req: Request, res:Response) => {
     try{
-        const {name, email, birthdate, nDni, username, password} = req.body;
+        const {name, email, phone, nDni, username, password} = req.body;
         const newUser: User = await createUserService({
-            name, email, birthdate, nDni, username, password
+            name, email, phone, nDni, username, password
         })
         res.status(201).json (newUser)
     } catch (error:any){
@@ -36,7 +36,8 @@ export const register = async (req: Request, res:Response) => {
 // POST /users/login login de usuario ya registrado
 
 export const login = async (req: Request, res:Response) => {
-    try{const {username, password} = req.body;
+    try{
+    const {username, password} = req.body;
     const credential = await validateCredential({
         username, password
     })

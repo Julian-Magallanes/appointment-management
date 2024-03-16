@@ -8,10 +8,12 @@ import phoneIcon from "../../assets/iconPhone.png"
 import Navbar from "../../components/Navbar/Navbar";
 import { useState } from "react";
 import ValidateUser from "../../helpers/ValidateUser";
-
+import axios from 'axios'
+import { Link, useNavigate } from "react-router-dom";
 
 const RegisterModal = () =>{
-const [userRegister, setUserRegiser]= useState({
+const navigate = useNavigate();
+const [userRegister, setUserRegister]= useState({
     username: "",
     password:"",
     passwordValidate: "",
@@ -33,7 +35,7 @@ const [errors, setErrors] = useState ({
 })
 const handleInputChange = (event) =>{
     const{name, value} = event.target
-    setUserRegiser({
+    setUserRegister({
         ...userRegister,
         [name]: value,
     });
@@ -44,15 +46,22 @@ const handleInputChange = (event) =>{
 }
 const handleInputSubmit = (event) =>{
     event.preventDefault();
-    alert("Usuario Creado")
-    setUserRegiser({
-        username: "",
-        password:"",
-        name:"",
-        nDni:"",
-        email:"",
-        phone:"",
+    axios.post("http://localhost:3000/users/register",userRegister)
+    .then(({data})=>data)
+    .then((userDB) => {alert(`Se a creado el usuario ${userDB.name}`)
+    console.log(userDB)
+    setUserRegister({ 
+    username: "",
+    password:"",
+    name:"",
+    nDni:"",
+    email:"",
+    phone:""
+    }
+    )
+    navigate("/Login")
     })
+    .catch ((error) => alert("Error al crear el usuario:" ,error))
 }
     return(
     <div>
@@ -160,7 +169,7 @@ const handleInputSubmit = (event) =>{
                         name="check"
                         onChange={handleInputChange}
                         />
-                        <label><a href="./">Acepto terminos y Condiciones</a></label>
+                        <label><Link to="/Terms">Acepto terminos y Condiciones</Link></label>
                     </div>
                     <div>
                         <p>{errors.check}</p>

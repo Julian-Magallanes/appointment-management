@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import styles from "./TermandCond.module.css"
 import arrowIcon from "../../assets/iconArrow.png"
+import { Link } from "react-router-dom";
 const TermandCond = () =>{
     return(
     <div className={styles.TermsContainer}>
@@ -21,10 +22,12 @@ const TermandCond = () =>{
                 <li>10. Contacto: Para cualquier pregunta o inquietud relacionada con estos términos y condiciones, los usuarios pueden ponerse en contacto con 2612111122254.</li>
             </ul>
         </div>
-            <div className={styles.BtnBack}>
-                <img src={arrowIcon} alt="arrowIcon" />
-                <a href="./">Volver a Registro</a>
-            </div>
+            <Link to="/Register">
+                <div className={styles.BtnBack}>
+                    <img src={arrowIcon} alt="arrowIcon" />
+                    <p>Volver a Registro</p>
+                </div>
+            </Link>
     </div>
 )
 }

@@ -11,6 +11,10 @@
     flex-direction: row;
     
 }
+.NavbarButtons{
+    display: block;
+    z-index: 2;
+}
 .ButtonLigth{
     font-size: 16px;
     border: 2px solid #1c252F;
@@ -19,6 +23,7 @@
     background: none;
     height: 32px;
     margin: 0px 5px;
+
 }
 .ButtonDark{
     font-size: 16px;
@@ -29,6 +34,7 @@
     color: #fff;
     height: 32px;
     margin: 0px 5px;
+
 }
 .NavbarMenu{
     height: 100%;
@@ -55,7 +61,7 @@
     width: 440px;
     right: 0;
     top: 0;
-    z-index: -1;
+    z-index: 1;
 }
 
 .NavbarDropdown li {
@@ -75,6 +81,7 @@
     height: 5px;
     background-color:#1c252F ;
     transition: 0.2s;
+    z-index: 2;
 }
 .NavbarMenuIcon1.Animation {
     transform: rotateZ(45deg);
@@ -88,6 +95,7 @@
     width: 40px;
     height: 5px;
     background-color:#1c252F ;
+    z-index: 2;
     
 }
 .NavbarMenuIcon2.Animation {
@@ -100,6 +108,8 @@
     height: 5px;
     background-color:#1c252F ;
     transition: 0.2s;
+    z-index: 2;
+    
 }
 .NavbarMenuIcon3.Animation {
     top: 4px;

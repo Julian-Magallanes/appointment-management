@@ -8,11 +8,11 @@ export default class User {
     id:number;
     @Column()
     name:string;
-    @Column()
+    @Column({unique:true})
     email:string;
-    @Column()
-    birthdate:string;
-    @Column()
+    @Column({unique:true})
+    phone:string;
+    @Column({unique:true})
     nDni:string;
 
     @OneToOne(() =>Credential)

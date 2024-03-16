@@ -13,7 +13,7 @@
 
 
 .LoginContainer{
-    height: 520px;
+    height: 580px;
     width: 820px;
     background-color: #fff;
     border-radius: 8px;
@@ -23,9 +23,11 @@
     align-items: center;
 }
 .LoginBrand{
-    margin: 40px;
+    margin: 28px;
 }
-
+.LoginContainer H2{
+    font-size: 22px;
+}
 .LoginContainerForm{
     display: flex;
     flex-direction: column;
