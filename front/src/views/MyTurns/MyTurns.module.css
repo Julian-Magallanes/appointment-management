@@ -47,3 +47,19 @@
     display: flex;
     justify-content: center;
 }
+.ButtonCancel{
+    font-size: 16px;
+    border: 2px solid #1c252F;
+    border-radius: 8px;
+    width: 100px;
+    background-color: #1c252F;
+    color: #fff;
+    height: 32px;
+    margin: 0px 20px;
+}
+.spanGreen{
+    color: green;
+}
+.spanRed{
+    color: red;
+}

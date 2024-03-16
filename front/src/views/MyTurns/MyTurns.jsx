@@ -79,11 +79,18 @@ return (
                             <td>
                                 <p>{turn.place}</p>
                             </td>
-                            <td>
-                                <span onClick={() => handleCancelAppointmentId(turn.id)}>{turn.status}</span>
+                            <td>{turn.status === "active" ? (
+                                <>
+                                    <span className={styles.spanGreen}>Activo</span>
+                                    <button className={styles.ButtonCancel} onClick={() => handleCancelAppointmentId(turn.id)}>Cancelar</button>
+                                </>
+                            ): 
+                            (<span className={styles.spanRed}>Cancelado</span>)
+                            
+                            }  
                             </td>
                         </tr>
-                    )) : <p>No hay reservas</p>}
+                    )) : <tr><td><p>No hay reservas</p></td></tr>}
                 </tbody>
             </table>
         </div>

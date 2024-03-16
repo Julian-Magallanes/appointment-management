@@ -7,17 +7,17 @@ const MenuPages = () =>{
     <div className={styles.MenuPagesContainer}>
         <ul>
             <li>
-                <NavLink  to="/" activeClassName={styles.active}>
+                <NavLink  to="/" >
                     Home
                 </NavLink>
             </li>
             <li>
-                <NavLink to="/Appointments" activeClassName={styles.active}>
+                <NavLink to="/Appointments" >
                     Gestion de Turnos
                 </NavLink>
             </li>
             <li>
-                <NavLink to="/History" activeClassName={styles.active}>
+                <NavLink to="/History" >
                     Historial de Turnos
                 </NavLink>
             </li>

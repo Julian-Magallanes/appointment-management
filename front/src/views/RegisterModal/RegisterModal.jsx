@@ -13,6 +13,8 @@ import { Link, useNavigate } from "react-router-dom";
 
 const RegisterModal = () =>{
 const navigate = useNavigate();
+
+
 const [userRegister, setUserRegister]= useState({
     username: "",
     password:"",
@@ -177,7 +179,7 @@ const handleInputSubmit = (event) =>{
                 </div>
 
                 <div>
-                    <input type="submit" value="Registrarme" className={styles.ButtonLigth} disabled={errors.username || errors.password || errors.passwordValidate || errors.name || errors.nDni || errors.email || errors.phone || errors.check}/>
+                    <input type="submit" value="Registrarme" className={styles.ButtonLigth} />
                 </div>
             </form>
         </div>
