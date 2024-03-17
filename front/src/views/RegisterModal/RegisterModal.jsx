@@ -10,6 +10,7 @@ import { useState } from "react";
 import ValidateUser from "../../helpers/ValidateUser";
 import axios from 'axios'
 import { Link, useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2'
 
 const RegisterModal = () =>{
 const navigate = useNavigate();
@@ -41,7 +42,12 @@ const handleInputSubmit = (event) =>{
     event.preventDefault();
     axios.post("http://localhost:3000/users/register",userRegister)
     .then(({data})=>data)
-    .then((userDB) => {alert(`Se a creado el usuario ${userDB.name}`)
+    .then((userDB) => {
+        Swal.fire({
+        title: "Usuario creado",
+        text: `Se a creado el usuario ${userDB.name}!`,
+        icon: "success"
+      });
     setUserRegister({ 
     username: "",
     password:"",

@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 import ValidateAppointments from "../../helpers/ValidateAppointment";
 import { useSelector } from "react-redux";
 import axios from "axios";
-
+import Swal from 'sweetalert2'
 const PostTurn = () =>{
     const initialState = {
     date: "",
@@ -43,7 +43,12 @@ const PostTurn = () =>{
         }
         axios.post("http://localhost:3000/appointments/schedule",newAppointment)
         .then(({data})=>data)
-        .then((appointmentDB) => {alert(`Se a creado un turno el dia: ${appointmentDB.date} a las ${appointmentDB.time} `)
+        .then((appointmentDB) => {
+            Swal.fire({
+            title: "Se a creado un turno",
+            text: `el dia: ${appointmentDB.date} a las ${appointmentDB.time}!`,
+            icon: "success"
+          });
         setUserAppointment(initialState)
         navigate("/History")
         })

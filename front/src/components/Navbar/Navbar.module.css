@@ -64,16 +64,24 @@
     z-index: 1;
 }
 
+.NavbarDropdown span {
+    position: relative;
+    top: 60px;
+    margin-bottom: 20px;
+}
+
+.NavbarDropdown span :hover ul {
+    display: block;
+}
 .NavbarDropdown li {
     position: relative;
     top: 60px;
     margin-bottom: 20px;
 }
 
-.NavbarDropdown li:hover ul {
+.NavbarDropdown li :hover ul {
     display: block;
 }
-
 .NavbarMenuIcon1{
     margin-left: 10px;
     margin-bottom: 8px;

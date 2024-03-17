@@ -10,7 +10,7 @@ import { useDispatch } from "react-redux";
 import { setUserData } from "../../redux/usersSlice";
 import Home from "../Home/Home";
 import axios from "axios";
-
+import Swal from 'sweetalert2'
 
 const LoginModal = () =>{
     const [userLogin, setUserLogin]= useState({
@@ -42,12 +42,14 @@ const LoginModal = () =>{
     .then(data => {
         
         dispatch (setUserData(data))
-        alert(`Usuario logeado ${data.user.name}`)
-
+        Swal.fire({
+            title: "Login Exitoso",
+            text: `Usuario logeado ${data.user.name}`,
+            icon: "success"
+          });
         navigate("../History")
     })
     .catch ((error) => alert("Acceso denegado:" ,error))
-      
     }
     return(
     <div> 

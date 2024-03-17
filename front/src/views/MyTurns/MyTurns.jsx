@@ -6,6 +6,7 @@ import Brand from "../../components/Brand/Brand";
 import MenuPages from "../../components/MenuPages/MenuPages";
 import {  useDispatch, useSelector } from "react-redux";
 import { setUserAppointments } from "../../redux/usersSlice";
+import Swal from 'sweetalert2'
 
 function MyTurns() {
     const actualUserId = useSelector(state => state.loginUser?.userData?.user?.id);
@@ -17,7 +18,7 @@ function MyTurns() {
         .get('http://localhost:3000/users/' + actualUserId) 
         .then((response) =>response.data.appointments)
         .then(dataAppointments =>dispatch(setUserAppointments(dataAppointments)))
-        .catch((error) =>console.log('Error en peticion a axios:'(error.message)));
+        .catch((error) =>console.log('Error en peticion a axios GET:'(error.message)));
             
         },[actualUserId, appointments.length, dispatch])
     const handleCancelAppointmentId = (appointmentId) => {
@@ -26,14 +27,18 @@ function MyTurns() {
         .put('http://localhost:3000/appointments/cancel/' + appointmentId)
         .then((response) =>response.data)
         .then(data =>{
+            Swal.fire({
+                title: "Se elimino el turno",
+                icon: "success"
+              });
             axios
             .get('http://localhost:3000/users/' + actualUserId) 
             .then((response) =>response.data.appointments)
             .then(dataAppointments =>dispatch(setUserAppointments(dataAppointments)))
-            .catch((error) =>console.log('Error en peticion a axios:'(error.message)))
+            .catch((error) =>console.log('Error en peticion a axios GET:'(error.message)))
         }
         )
-        .catch((error) =>console.log('Error en peticion a put axios:'(error.message)))
+        .catch((error) =>console.log('Error en peticion a put axios PUT:'(error.message)))
     }
 return (
     <div>
