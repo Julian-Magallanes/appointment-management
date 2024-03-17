@@ -13,9 +13,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 const RegisterModal = () =>{
 const navigate = useNavigate();
-
-
-const [userRegister, setUserRegister]= useState({
+const initialState = {
     username: "",
     password:"",
     passwordValidate: "",
@@ -24,17 +22,10 @@ const [userRegister, setUserRegister]= useState({
     email:"",
     phone:"",
     check:"",
-})
-const [errors, setErrors] = useState ({
-    username: "",
-    password:"",
-    passwordValidate: "",
-    name:"",
-    nDni:"",
-    email:"",
-    phone:"",
-    check:"",
-})
+    }
+
+const [userRegister, setUserRegister]= useState(initialState)
+const [errors, setErrors] = useState (initialState)
 const handleInputChange = (event) =>{
     const{name, value} = event.target
     setUserRegister({
@@ -51,7 +42,6 @@ const handleInputSubmit = (event) =>{
     axios.post("http://localhost:3000/users/register",userRegister)
     .then(({data})=>data)
     .then((userDB) => {alert(`Se a creado el usuario ${userDB.name}`)
-    console.log(userDB)
     setUserRegister({ 
     username: "",
     password:"",
@@ -167,7 +157,7 @@ const handleInputSubmit = (event) =>{
                         type="checkbox" 
                         id="checkboxInput" 
                         className={styles.checkboxInput}
-                        value={console.log(userRegister.check=true)}
+                        value={userRegister.check=true}
                         name="check"
                         onChange={handleInputChange}
                         />

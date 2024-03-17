@@ -44,7 +44,6 @@ const PostTurn = () =>{
         axios.post("http://localhost:3000/appointments/schedule",newAppointment)
         .then(({data})=>data)
         .then((appointmentDB) => {alert(`Se a creado un turno el dia: ${appointmentDB.date} a las ${appointmentDB.time} `)
-        console.log(appointmentDB)
         setUserAppointment(initialState)
         navigate("/History")
         })
@@ -85,7 +84,7 @@ const PostTurn = () =>{
                     onChange={handleInputChange}
                     value={userAppointment.time}
                     >
-                        <option disabled>Elije en la lista</option>
+                        <option value="">Elije en la lista</option>
                         <option value="8:00">8:00</option>
                         <option value="8:30">8:30</option>
                         <option value="9:00">9:00</option>
@@ -110,7 +109,7 @@ const PostTurn = () =>{
                     onChange={handleInputChange}
                     value={userAppointment.description}
                     >
-                        <option disabled>Elije en la lista</option>
+                        <option value="">Elije en la lista</option>
                         <option value="Solicitud de prestamo">Solicitud de prestamo</option>
                         <option value="Retiro en caja">Retiro en caja</option>
                         <option value="Solicitud tarjeta">Solicitud tarjeta</option>
@@ -130,7 +129,7 @@ const PostTurn = () =>{
                     onChange={handleInputChange}
                     value={userAppointment.place}
                     >
-                        <option disabled>Elije en la lista</option>
+                        <option value="">Elije en la lista</option>
                         <option value="Balcarce 272, Godoy Cruz">Balcarce 272, Godoy Cruz</option>
                         <option value="Dorrego 586, Guaymallen">Dorrego 586, Guaymallen</option>
                         <option value="Independencia 586, Las Heras">Independencia 586, Las Heras</option>

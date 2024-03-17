@@ -2,7 +2,8 @@ import React from "react";
 import styles from "./Navbar.module.css"
 import menuNavbarImage from "../../assets/iconMenu.png"
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
 const MenuNavbar = () =>{
     const [dropdownVisible, setDropdownVisible] = useState(false);
     const [menuAnimation, setMenuAnimation] = useState(false);
@@ -10,6 +11,7 @@ const MenuNavbar = () =>{
         setDropdownVisible(!dropdownVisible);
         setMenuAnimation(!menuAnimation);
     };
+    const login = useSelector(state => state?.loginUser?.userData?.user);
     return(
     <div className={styles.NavbarMenu}>
       
@@ -19,15 +21,16 @@ const MenuNavbar = () =>{
             <div className={`${styles.NavbarMenuIcon3} ${menuAnimation ? styles.Animation : ''}`}></div>
         </div>
         <ul className={`${styles.NavbarDropdown} ${dropdownVisible ? styles.Visible : ''}`}>
-            <Link to="/Appointments">
-                <li>Gestion de Turnos</li>
-            </Link>
-            <Link to="/History">
-                <li>Historial de Turnos</li>
-            </Link>
-            <Link to="/History">
-                <li>Preguntas Frecuentes</li>
-            </Link>
+            {!login && <li className={styles.Red}>Logeate y empieza a utilizar la app</li>}
+            {login && <NavLink to="/Appointments">
+                <span>Gestion de Turnos</span>
+            </NavLink>}
+            {login &&<NavLink to="/History">
+                <span>Historial de Turnos</span>
+            </NavLink>}
+            <NavLink to="/PagesConstruction">
+                <span >Preguntas Frecuentes</span>
+            </NavLink>
         </ul>
     </div>
     )

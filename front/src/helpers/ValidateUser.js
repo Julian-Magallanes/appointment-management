@@ -39,7 +39,7 @@ export default function ValidateUser (userRegister){
         if(!phoneRegex.test(userRegister.phone))errors.phone = "Debe ingresar un telefono valido con 10 numero, ejemplo: 2613012708"
     }
 
-    if(!userRegister.check !== true)errors.check = "Debe aceptar los terminos y condiciones";
+    if(!userRegister.check == true)errors.check = "Debe aceptar los terminos y condiciones";
 
     return errors;
 }

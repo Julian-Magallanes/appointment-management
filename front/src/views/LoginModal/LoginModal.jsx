@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Login.module.css"
-import Brand from "../Brand/Brand";
+import Brand from "../../components/Brand/Brand";
 import userIcon from "../../assets/iconUser.png"
 import passwordIcon from "../../assets/iconPassword.png"
 import ValidateCredential from "../../helpers/ValidateCredential";
@@ -8,7 +8,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setUserData } from "../../redux/usersSlice";
-import Home from "../../views/Home/Home";
+import Home from "../Home/Home";
 import axios from "axios";
 
 

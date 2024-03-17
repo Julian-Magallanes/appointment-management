@@ -1,24 +1,25 @@
 import React from "react";
 import styles from "./MenuPages.module.css"
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
-const MenuPages = () =>{
+const MenuPages = (props) =>{
+    
     return(
     <div className={styles.MenuPagesContainer}>
         <ul>
             <li>
-                <NavLink  to="/" >
-                    Home
+                <Link  to="../" >
+                    <span>Home</span>
+                </Link>
+            </li>
+            <li>
+                <NavLink to="/Appointments" className={({isActive}) => isActive && styles.active}>
+                    <span>Gestion de Turnos</span>
                 </NavLink>
             </li>
             <li>
-                <NavLink to="/Appointments" >
-                    Gestion de Turnos
-                </NavLink>
-            </li>
-            <li>
-                <NavLink to="/History" >
-                    Historial de Turnos
+                <NavLink to="/History" className={({isActive}) => isActive && styles.active}>
+                    <span>Historial de Turnos</span>
                 </NavLink>
             </li>
         </ul>

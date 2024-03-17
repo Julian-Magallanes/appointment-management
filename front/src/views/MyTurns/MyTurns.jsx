@@ -10,9 +10,8 @@ import { setUserAppointments } from "../../redux/usersSlice";
 function MyTurns() {
     const actualUserId = useSelector(state => state.loginUser?.userData?.user?.id);
     const appointments = useSelector(state =>state.loginUser.userAppoinments)
-    console.log(appointments);
     const dispatch = useDispatch();
-    console.log(actualUserId);
+
     useEffect(()=>{
         axios
         .get('http://localhost:3000/users/' + actualUserId) 
