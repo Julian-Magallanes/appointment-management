@@ -40,6 +40,12 @@ const handleInputChange = (event) =>{
 }
 const handleInputSubmit = (event) =>{
     event.preventDefault();
+
+    if (userRegister.password !== userRegister.passwordValidate) {
+        setErrors({ ...errors, passwordValidate: "La contraseña ingresada no coincide con la contraseña anterior" });
+        return; // Detiene el proceso de registro si las contraseñas no coinciden
+    }
+    
     axios.post("http://localhost:3000/users/register",userRegister)
     .then(({data})=>data)
     .then((userDB) => {
@@ -163,7 +169,7 @@ const handleInputSubmit = (event) =>{
                         type="checkbox" 
                         id="checkboxInput" 
                         className={styles.checkboxInput}
-                        value={userRegister.check=true}
+                        checked={userRegister.check}
                         name="check"
                         onChange={handleInputChange}
                         />
