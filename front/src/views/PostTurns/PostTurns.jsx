@@ -47,14 +47,29 @@ const PostTurn = () =>{
             Swal.fire({
             title: "Se a creado un turno",
             text: `el dia: ${appointmentDB.date} a las ${appointmentDB.time}!`,
-            icon: "success"
+            icon: "success",
+            timer: 1500,
+            showConfirmButton:false
           });
         setUserAppointment(initialState)
         navigate("/History")
         })
         .catch ((error) => alert("Error al crear el turno:" ,error))
     }
-
+    function getTomorrow() {
+        const today = new Date();
+        const tomorrow = new Date(today);
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        return tomorrow.toISOString().split('T')[0]; // Devuelve la fecha de mañana en formato ISO 8601
+    }
+    
+    function getOneMonths() {
+        const today = new Date();
+        const oneMonthLater = new Date(today);
+        oneMonthLater.setMonth(oneMonthLater.getMonth() + 1);
+        return oneMonthLater.toISOString().split('T')[0]; // Devuelve la fecha de un mes más tarde en formato ISO 8601
+    }
+    
     return(
     <div >
         <div className={styles.PostTurnsBrand}>
@@ -74,6 +89,8 @@ const PostTurn = () =>{
                     onChange={handleInputChange}
                     name="date"
                     value={userAppointment.date}
+                    min={getTomorrow()}
+                    max={getOneMonths()}
                     />
                 </div>
                 <p>{errors.date}</p>

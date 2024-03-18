@@ -8,21 +8,17 @@ Es una aplicación integral de gestión de  turnos diseñada para agilizar el pr
 
 1. `Funcionalidad 1`: Como usuario quiero poder crear una cuenta nueva
 - `Funcionalidad 1a`: Llenar un formulario de perfil
-- `Funcionalidad 1b`: Subir una fotografia
-- `Funcionalidad 1c`: validar cuenta via mail
 2. `Funcionalidad 2`: Como usuario quiero poder iniciar sesion
 3. `Funcionalidad 3`: Como usuario quiero poder sacar un turno
 - `Funcionalidad 4a`: Elegir dia
 - `Funcionalidad 4a`: Elegir horario
 - `Funcionalidad 4a`: Elegir tipo de servicio que se requiere
 4. `Funcionalidad 4`: Como usuario quiero poder acceder al historial
-- `Funcionalidad 4a`: Descargar historial
-- `Funcionalidad 4b`: Calificar atencion
 5. `Funcionalidad 5`: Como usuario quiero poder cerrar la aplicacion
 
 ## Version
 
-Version 1.0.0
+Version 1.10.8
 
 
 :construction: Proyecto en construcción :construction:

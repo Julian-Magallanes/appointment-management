@@ -1,3 +1,25 @@
 *{
   font-family: "Inter", sans-serif
 }
+.btn-danger{
+  font-size: 16px;
+  border: 2px solid #1c252F;
+  border-radius: 8px;
+  width: 160px;
+  background: none;
+  height: 32px;
+  margin: 0px 5px;
+
+}
+
+.btn-success{
+  font-size: 16px;
+  border: 2px solid #1c252F;
+  border-radius: 8px;
+  width: 160px;
+  background-color: #1c252F;
+  color: #fff;
+  height: 32px;
+  margin: 0px 5px;
+
+}

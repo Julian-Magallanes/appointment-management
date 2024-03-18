@@ -45,11 +45,13 @@ const LoginModal = () =>{
         Swal.fire({
             title: "Login Exitoso",
             text: `Usuario logeado ${data.user.name}`,
-            icon: "success"
+            icon: "success",
+            timer: 1500,
+            showConfirmButton:false
           });
         navigate("../History")
     })
-    .catch ((error) => alert("Acceso denegado:" ,error))
+    .catch ((error) => alert(`Acceso denegado: ${error}` ))
     }
     return(
     <div> 

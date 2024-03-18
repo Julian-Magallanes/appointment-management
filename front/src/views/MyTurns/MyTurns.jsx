@@ -29,7 +29,9 @@ function MyTurns() {
         .then(data =>{
             Swal.fire({
                 title: "Se elimino el turno",
-                icon: "success"
+                icon: "success",
+                timer: 1500,
+                showConfirmButton:false
               });
             axios
             .get('http://localhost:3000/users/' + actualUserId) 
@@ -40,6 +42,38 @@ function MyTurns() {
         )
         .catch((error) =>console.log('Error en peticion a put axios PUT:'(error.message)))
     }
+    const handleValidationCancel=(appointmentId)=>{
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+              confirmButton: "btn btn-success",
+              cancelButton: "btn btn-danger"
+            },
+            buttonsStyling: false
+          });
+          swalWithBootstrapButtons.fire({
+            title: "Estas seguro?",
+            text: "No se podra revertir",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Eliminarlo",
+            cancelButtonText: "Me equivoque",
+            reverseButtons: true
+          }).then((result) => {
+            if (result.isConfirmed) {
+              swalWithBootstrapButtons.fire(
+                handleCancelAppointmentId(appointmentId)
+              );
+            } else if (
+              result.dismiss === Swal.DismissReason.cancel
+            ) {
+              swalWithBootstrapButtons.fire({
+                title: "ok volvemos al historial",
+                text: "tu turno sigue activo",
+                
+                
+              });
+            }
+          })};
 return (
     <div>
        <div className={styles.MyTurnsBrand}>
@@ -86,7 +120,7 @@ return (
                             <td>{turn.status === "active" ? (
                                 <>
                                     <span className={styles.spanGreen}>Activo</span>
-                                    <button className={styles.ButtonCancel} onClick={() => handleCancelAppointmentId(turn.id)}>Cancelar</button>
+                                    <button className={styles.ButtonCancel} onClick={() => handleValidationCancel(turn.id)}>Cancelar</button>
                                 </>
                             ): 
                             (<span className={styles.spanRed}>Cancelado</span>)

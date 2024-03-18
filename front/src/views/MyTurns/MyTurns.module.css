@@ -46,6 +46,8 @@
 .MyTurnsTable{
     display: flex;
     justify-content: center;
+    margin-bottom: 40px;
+
 }
 .ButtonCancel{
     font-size: 16px;

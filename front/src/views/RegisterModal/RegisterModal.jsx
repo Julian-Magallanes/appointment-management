@@ -52,7 +52,8 @@ const handleInputSubmit = (event) =>{
         Swal.fire({
         title: "Usuario creado",
         text: `Se a creado el usuario ${userDB.name}!`,
-        icon: "success"
+        icon: "success",
+        showConfirmButton:false
       });
     setUserRegister({ 
     username: "",
@@ -65,7 +66,7 @@ const handleInputSubmit = (event) =>{
     )
     navigate("/Login")
     })
-    .catch ((error) => alert("Error al crear el usuario:" ,error))
+    .catch ((error) => alert(`Error al crear el usuario: ${error}`))
 }
     return(
     <div>
