@@ -33,19 +33,22 @@ const handleInputChange = (event) =>{
         ...userRegister,
         [name]: value,
     });
-    setErrors (ValidateUser({
+    setErrors(ValidateUser({
         ...userRegister,
         [name]: value
-    }))
+    }));
+
 }
 const handleInputSubmit = (event) =>{
     event.preventDefault();
-
     if (userRegister.password !== userRegister.passwordValidate) {
         setErrors({ ...errors, passwordValidate: "La contraseña ingresada no coincide con la contraseña anterior" });
         return; // Detiene el proceso de registro si las contraseñas no coinciden
     }
-    
+    if(!userRegister.check){
+        setErrors({ ...errors, check : "Debe aceptar los terminos y condiciones"});
+        return; // Detiene el proceso de registro si las contraseñas no coinciden
+    }
     axios.post("http://localhost:3000/users/register",userRegister)
     .then(({data})=>data)
     .then((userDB) => {
@@ -136,7 +139,7 @@ const handleInputSubmit = (event) =>{
                         onChange={handleInputChange}
                         />
                     </div>
-                    <p>{errors.nDni}</p>
+                    <p >{errors.nDni}</p>
                 </div>
                 <div className={styles.RegisterContainerFormInputContainer}>
                     <label htmlFor="">Email</label>

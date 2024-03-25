@@ -34,12 +34,12 @@ export default function ValidateUser (userRegister){
         if(!emailRegex.test(userRegister.email))errors.email = "Debe ingresar un fomato de dni valido ejemplo@ejemplo.com"
     }
 
-    if(!userRegister.password)errors.phone = "Debe ingresa numero de telefono";
+    if(!userRegister.phone)errors.phone = "Debe ingresa numero de telefono";
     else{
         if(!phoneRegex.test(userRegister.phone))errors.phone = "Debe ingresar un telefono valido con 10 numero, ejemplo: 2613012708"
     }
 
-    if(!userRegister.check)errors.check = "Debe aceptar los terminos y condiciones";
+    if(!userRegister.check) errors.check = "Debe aceptar los terminos y condiciones"
 
     return errors;
 }
