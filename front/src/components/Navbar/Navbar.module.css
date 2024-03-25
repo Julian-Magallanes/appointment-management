@@ -148,3 +148,30 @@
         width:25px ;
     }
 }
+@media (max-width: 420px){
+    .NavbarMenuIcon3{
+        width: 32px;
+        height: 4px;
+    }
+    .NavbarMenuIcon2{
+        width: 32px;
+        height: 4px;
+    }
+    .NavbarMenuIcon1{
+        width: 32px;
+        height: 4px;
+    }
+    .ButtonLigth{
+        display: none;
+    }
+    .ButtonDark{
+        display: none;
+    }
+    .NavbarDropdown.Visible {
+        width: 100vh;
+    }
+    .NavbarDropdown {
+        font-size: 18px;
+
+    }
+}

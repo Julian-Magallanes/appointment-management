@@ -30,3 +30,15 @@
     rotate: 180deg;
     margin-right: 40px;
 }
+@media (max-width: 420px){
+    .TermsContainer h2{
+        font-size: 18px;
+    }
+    .BtnBack{
+        font-size: 18px;
+    }
+    .BtnBack img{
+        width: 50px;
+        margin-right: 10px;
+    }
+}

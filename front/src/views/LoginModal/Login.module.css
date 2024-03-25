@@ -97,3 +97,38 @@
     margin: 10px;
     cursor: pointer;
 }
+@media (max-width: 768px){
+    .LoginContainer{
+        height: 580px;
+        width: 620px;
+    }
+    .LoginContainerFormInput{
+        width: 420px;
+    }
+}
+@media (max-width: 420px){
+    .LoginContainer{
+        height: 480px;
+        width: 320px;
+    }
+    .LoginContainerFormInput{
+        width: 250px;
+    }
+    .ButtonLigth{
+        font-size: 16px;
+        width: 180px;
+        height: 32px;
+    }
+    .ButtonDark{
+        font-size: 16px;
+        width: 180px;
+        height: 32px;
+    }
+    .LoginBrand{
+        margin: 18px;
+    }
+    .LoginContainerForm{
+        height: 80%;
+    
+    }
+}

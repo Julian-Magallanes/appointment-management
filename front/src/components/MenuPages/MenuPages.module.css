@@ -31,3 +31,10 @@
     font-weight: 800;
     border-bottom: 3px solid #1c252F;
 }
+@media (max-width: 420px){
+    .MenuPagesContainer ul li{
+        font-size: 15px;
+        margin-left: 14px;
+    }
+    
+}

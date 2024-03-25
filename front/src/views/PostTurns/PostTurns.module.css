@@ -102,3 +102,33 @@
     margin: 0px 5px;
     margin: 10px;
 }
+@media (max-width: 768px){
+    .PostTurnsContainerFormInput{
+        width: 520px;
+    }
+    .ButtonDark{
+        width: 250px;
+        height: 36px;
+    }
+    .ButtonLigth{
+        width: 250px;
+        height: 36px;
+    }
+}
+@media (max-width: 420px){
+    .PostTurnsContainerFormInput{
+        width: 320px;
+    }
+    .PostTurnsContainerFormButtons{
+        flex-direction: column;
+        margin-bottom: 40px;
+    }
+    .ButtonDark{
+        width: 250px;
+        height: 36px;
+    }
+    .ButtonLigth{
+        width: 250px;
+        height: 36px;
+    }
+}

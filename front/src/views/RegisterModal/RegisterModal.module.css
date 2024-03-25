@@ -89,3 +89,23 @@
     color: #2B2E78;
     margin-left: 10px;
 }
+@media (max-width: 768px){
+    .RegisterContainerFormInput{
+        width: 520px;
+    }
+    .RegisterContainerFormCheckbox{
+        width: 520px;
+    }
+}
+@media (max-width: 420px){
+    .RegisterContainerFormInput{
+        width: 300px;
+    }
+    .RegisterContainerFormCheckbox{
+        width: 300px;
+    }
+    .ButtonLigth{
+        width: 160px;
+        height: 36px;
+    }
+}

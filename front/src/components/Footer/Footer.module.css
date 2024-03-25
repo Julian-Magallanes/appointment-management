@@ -27,3 +27,30 @@
     margin: 0px 20px;
     width: 45px;
 }
+@media (max-width: 768px){
+    .footerContainer h6{
+        font-size: 16px;
+    }
+    .footerContainer h4{
+        font-size: 20px;
+        margin-right: 10px;
+    }
+    .footerContainerRrss img{
+        margin: 0px 10px;
+        width: 32px;
+    }
+    .footerContainer{
+        padding: 20px 20px;
+    }
+}
+@media (max-width: 420px){
+    .footerContainer h4{
+        font-size: 16px;
+        margin-right: 0px;
+        text-align: end;
+        width: 160px;
+    }
+    .footerContainer{
+        padding: 20px 20px;
+    }
+}

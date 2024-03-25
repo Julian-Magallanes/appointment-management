@@ -17,6 +17,13 @@
     opacity: 60%;
    
 }
+@media (max-width: 768px){
+    .homeBackground{
+        content: "";
+        z-index: -3;
+        background-size: cover;  
+    }
+}
 .homeContainerChildren{
     display: flex;
     justify-content: center;
